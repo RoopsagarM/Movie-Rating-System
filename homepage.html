@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Movies Homepage</title>
+    <link rel="stylesheet" href="./css/homepage.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+
+    <section class="modal" id="modal">
+            <div class="modal_child">
+                <div class="rate">
+                    <i class="fa-solid fa-star rate_star" data-num="1" onclick="confirmRating(event)" onmouseout="clearUp()" onmouseover="selectRate(event)"></i>
+                    <i class="fa-solid fa-star rate_star" data-num="2" onclick="confirmRating(event)" onmouseout="clearUp()" onmouseover="selectRate(event)"></i>
+                    <i class="fa-solid fa-star rate_star" data-num="3" onclick="confirmRating(event)" onmouseout="clearUp()" onmouseover="selectRate(event)"></i>
+                    <i class="fa-solid fa-star rate_star" data-num="4" onclick="confirmRating(event)" onmouseout="clearUp()" onmouseover="selectRate(event)"></i>
+                    <i class="fa-solid fa-star rate_star" data-num="5" onclick="confirmRating(event)" onmouseout="clearUp()" onmouseover="selectRate(event)"></i>
+                </div>
+
+                <div>
+                    <button class="btn" onclick="submitRating()">Submit Rating</button>
+                    <button class="btn" onclick="closeModal()">Cancel Rating</button>
+                </div>
+                
+            </div>
+    </section>
+
+
+    <section class="movies">
+
+        <div class="movies_header">
+            <h1 class="movies_header_title">Movies List</h1>
+            <button><a href="index.html">Admin Panel</a></button>
+        </div>
+
+        <div class="all_movies" id="all_movies">
+                       
+        </div>
+
+
+    </section>
+
+    
+
+    <script src="./js/homepage.js"></script>
+</body>
+</html>

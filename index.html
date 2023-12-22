@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MovieZone</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+    <!-- <header class="header">
+
+        <div class="logo">
+            <p>MovieZone</p>
+        </div>
+
+    </header> -->
+
+    <!-- view model section -->
+    <div class="view_modal" id="view_modal" onclick="closeModel('view_modal',event.target.id)">
+        <div class="movie_details">
+            <div class="close">
+                <i onclick="closeModel('view_modal',true)" class="fa-solid fa-circle-xmark closeicom"></i>
+            </div>
+            <h1 id="title">The Roop's Prediction</h1>
+            <div class="details">
+                <div class="poster">
+                    <div class="image">
+                        <img id="poster" src="https://images-na.ssl-images-amazon.com/images/M/MV5BMTQ4MzQzMzM2Nl5BMl5BanBnXkFtZTgwMTQ1NzU3MDI@._V1_SY500_CR0,0,356,500_AL_.jpg" >
+                    </div>
+                    <div class="genre">
+                        <p id="genre">Inspiring . Drama</p>
+                    </div>
+                </div>
+                <div class="movie_content">
+                    <div>
+                        <h3>Storyline : </h3>
+                        <p id="storyline" class="story_line">
+                            Biopic of Mahavir Singh Phogat, who taught wrestling to his daughters Babita Kumari and Geeta Phogat. Geeta Phogat was India's first female wrestler to win at the 2010 Commonwealth Games, where she won the gold medal (55 kg) while her sister Babita Kumari won the silver (52 kg).                Written by\nDibyayan_Chakravorty
+                        </p>
+                    </div>
+                    <div>
+                        <h3>Actors : </h3>
+                        <p id="actors" class="actors">
+                            Pawan Kalyan . Allu Arjun
+                        </p>
+                    </div>
+                    <div>
+                        <h3>Release Date : </h3>
+                        <p id="releasedate" class="release_date">
+                            25th February 2022
+                        </p>
+                    </div>
+                    <div>
+                        <h3>Runtime : </h3>
+                        <p id="duration" class="duration">
+                            150 Mins
+                        </p>
+                    </div>
+                     <div>
+                        <h3>Ratings : </h3>
+                        <div class="ratings">
+                             <div>
+                                 <h3>IMBD : </h3>
+                                 <p id="imbd">8.8</p>
+                             </div>
+                             <div>
+                                 <h3>Average Ratings : </h3>
+                                 <p id="avgratings">8.3</p>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+
+    <!-- add model section -->
+
+    <section class="add_model" id="add_model" onclick="closeModel('add_model',event.target.id)">
+
+        <div class="model_child">
+            <div class="close model_close">
+                <i onclick="closeModel('add_model',true)" class="fa-solid fa-circle-xmark closeicom"></i>
+            </div>
+            <h1 class="model_title">Add New Movie</h1>
+            <form id="add_form">
+                <div class="form">
+
+                    <input type="text" placeholder="Enter Title" class="inp" id="add_title">
+                    <input type="text" placeholder="Enter Genres seperated by , " class="inp" id="add_genres">
+                    <input type="number" placeholder="Enter Duration" class="inp" id="add_duration">
+                    <input type="text" placeholder="Enter Release Date" class="inp" id="add_releasedate" onfocus="convertToDate()">
+                    <input type="text" placeholder="Enter Actors seperated by , " class="inp" id="add_actors">
+                    <input type="test" placeholder="Enter IMBD Rating" class="inp" id="add_imbd">
+                    <input type="url" placeholder="Enter Poster URL" class="inp" id="add_posterurl">
+                    <textarea placeholder="Enter Storyline" class="big_inp inp" id="add_storyline"></textarea>
+                    <button type="button" onclick="createMovie()">Create Movie</button>
+                </div>
+            </form>
+        </div>
+
+    </section>
+
+    <!-- update model section -->
+
+    <section class="update_model" id="update_model" onclick="closeModel('update_model',event.target.id)">
+
+        <div class="model_child">
+            <div class="close model_close">
+                <i onclick="closeModel('update_model',true)" class="fa-solid fa-circle-xmark closeicom"></i>
+            </div>
+            <h1 class="model_title">Update Movie</h1>
+            <form id="add_form">
+                <div class="form">
+
+                    <input type="text" placeholder="Enter Title" class="inp" id="update_title">
+                    <input type="text" placeholder="Enter Genres seperated by , " class="inp" id="update_genres">
+                    <input type="number" placeholder="Enter Duration" class="inp" id="update_duration">
+                    <input type="text" placeholder="Enter Release Date" class="inp" id="update_releasedate" onfocus="convertToDate()">
+                    <input type="text" placeholder="Enter Actors seperated by , " class="inp" id="update_actors">
+                    <input type="test" placeholder="Enter IMBD Rating" class="inp" id="update_imbd">
+                    <input type="url" placeholder="Enter Poster URL" class="inp" id="update_posterurl">
+                    <textarea placeholder="Enter Storyline" class="big_inp inp" id="update_storyline"></textarea>
+                    <p class="check">
+                        <input type="checkbox" id="update_blocked" >Block
+                    </p>
+                    <button type="button" onclick="updateMovie()">Update Movie</button>
+                </div>
+            </form>
+        </div>
+
+    </section>
+ 
+
+
+    <section class="data">
+        <div class="data-header">
+            <h1>All Movies</h1>
+            <div class="header_button">
+                <button><a href="homepage.html">User Panel</a></button>
+                <button onclick="openAddModel()">Add New Movies</button>
+            </div>
+        </div>
+        <div class="data-table">
+            <table>
+                <thead>
+                    <th>SL. NO.</th>
+                    <th>Title</th>
+                    <th>Release Date</th>
+                    <th>Genres</th>
+                    <th>Duration</th>
+                    <th>IMBD Rating</th>
+                    <!-- <th>Content Rating</th> -->
+                    <th>Operations</th>
+                </thead>
+                <tbody id="movies">
+
+                </tbody>
+            </table>
+        </div>
+        <div class="pagination">
+            <div class="page_controls">
+                <button onclick="prevPage()">
+                    <i class="fa-solid fa-angles-left"></i>
+                    Prev
+                </button>
+                <div class="pages" id="pages">
+
+                </div>
+                <button onclick="nextPage()">
+                    next
+                    <i class="fa-solid fa-angles-right"></i>
+                </button>
+                <input type="number" class="inp page_number" onkeyup="openPage(this.value)" placeholder="Enter Page Number" id="page_number" >
+            </div>
+            <div class="page_details">
+                <p>page <span id="current_page">1</span> of <span id="totalpages">0</span></p>
+            </div>
+            
+        </div>
+    </section>
+
+
+
+    
+    <script src="js/index.js"></script>
+</body> 
+</html>
